@@ -15,29 +15,20 @@ Vue.use(VueRouter);
 import profile from './components/profile.vue'
 //import the about component
 import search from './components/search.vue'
-//define your routes
-import artist from './components/artist.vue'
-
-import album from './components/album.vue'
 
 import login from './components/login.vue'
 
-import statistics from './components/statistics.vue'
+
 
 
 const routes = [
 
-  { path: '/', component: search },
+  { path: '/', component: search},
 
   { path: '/login', component: login },
 
-  { path: '/statistics', component: statistics },
+  { name: 'profile', path: '/profile/:name', component: profile }
 
-  { name: 'profile', path: '/profile/:name', component: profile },
-
-  { name: 'artist', path: '/artist/:name/:id/:spotify', component: artist },
-
-  { name: 'album', path: '/album/:title/:id/:artist', component: album },
 
 ]
 

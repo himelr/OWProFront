@@ -15,8 +15,7 @@
 
         <div>
           <router-link class="navbar-brand" v-bind:to="'/'">
-            <img src="/static/img/logo_and_name/logo/icon1-white.png" style="width:auto; height:30px" class="d-inline-block align-top" alt="">
-            <img src="/static/img/logo_and_name/name/name1-white.png" style="width:auto; height:30px" class="d-inline-block align-top" alt="">
+        <div> Chamo </div>
           </router-link>
 
         </div>
@@ -28,18 +27,14 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
 
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item" >
-              <router-link class="nav-link" v-bind:to="'/statistics'">Statistics</router-link>
-            </li>
-             <li class="nav-item" >
-              <router-link class="nav-link" v-bind:to="'/artist/Metallica/65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab/2ye2Wgw4gimLv2eAKyk1NB'">Artist</router-link>
-            </li>
-            <li class="nav-item" v-if="this.username != null">
+          
+         
+        <!--     <li class="nav-item" v-if="this.username != null">
               <router-link class="nav-link owo" v-bind:to="'/profile/'+ username">Profile {{username}}</router-link>
-            </li>
+            </li> -->
             <li class="nav-item" v-if="this.username != null">
 
-              <a class="nav-link" href="/logout">Logout!</a>
+              <a class="nav-link" href="/logout">{{this.username}} Logout!</a>
 
             </li>
 
@@ -121,14 +116,14 @@ h6 {
 }
 
 body {
-  background: url(/static/img/free-purple-triangles-vector.jpg);
+/*   background: url(/static/img/free-purple-triangles-vector.jpg); */
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .navbar {   
-  background-color:  #9C27B0;  
+  background-color:  navy;  
   border-bottom-style: solid;
   border-bottom-color: rgb(239, 241, 242);
   border-bottom-width: 0;
@@ -136,7 +131,7 @@ body {
 }
 <!--.navbar:hover {
   display: block;  
-  background-color: #9C27B0;  
+  background-color:white;  
   transition-property: all;
   transition-duration: 0.3s;
   transition-timing-function: ease-out;

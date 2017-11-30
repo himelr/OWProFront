@@ -2,19 +2,16 @@ const bcrypt = require('bcrypt-nodejs');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const autoIncrement = require('mongoose-auto-increment');
-const connection = mongoose.createConnection('mongodb://root:root@ds131914.mlab.com:31914/moosebeat');
+const connection = mongoose.createConnection('mongodb://ec2-54-194-96-92.eu-west-1.compute.amazonaws.com:27017/admin');
 autoIncrement.initialize(connection);
-
+//'mongodb://root:root@ds131914.mlab.com:31914/moosebeat
+//mongodb://test:test@ec2-54-194-96-92.eu-west-1.compute.amazonaws.com:27017/owapi
 // create a schema  unique: true 
 const userSchema = new Schema({
 
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   admin: Boolean,
-  location: String,
-  reviews: [{}], 
-  albums: [{}],
-  listened: [{}],
   created_at: Date,
   updated_at: Date,
   _id: Number

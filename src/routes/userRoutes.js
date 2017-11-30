@@ -3,7 +3,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('./../models/user');
 const request = require('request');
-const Album = require('./../models/album');
 
 
 
@@ -27,29 +26,7 @@ router.get('/user/get/:_id', function (req, res) {
   });
 });
 
-router.get('/user', function (req, res) {
 
-  const userN = new User({
-    username: 'Forsen23',
-    password: 'hunter2',
-    created_at: new Date()
-  });
-
-  userN.save(function (err) {
-    /*     userN.resetCount(function(err, nextCount) {
-          
-                 }); */
-    if (err) throw err;
-
-    console.log('User saved successfully!');
-
-  });
-
-  res.json({
-    message: 'create',
-    geebo: 'lul'
-  });
-});
 
 router.post('/user/create/', function (req, res) {
   res.setHeader('Content-Type', 'application/json');
@@ -106,165 +83,11 @@ router.get('/user/create/:name/:password', function (req, res) {
   });
 });
 
-router.get('/user/albums/add/:artist/:title/:mbid', isLoggedIn, function (req, res) {
-  //http://api.onemusicapi.com/20151208/images/discogs/10038433/1491656932-6796.jpeg.jpg?user_key=00c4333119af814c9d614cc8a71ece61&inc=images&maxResultCount=1
-
-  User.findOne({ 'username': req.user.username }, function (err, user) {
-
-    user.albums.push(
-      { artist: req.params.artist, title: req.params.title, cover: 'https://coverartarchive.org/release-group/' + req.params.mbid + '/front.jpg', mbid: req.params.mbid }
-    );
-    user.save(err => {
-
-      if (err) throw err;
-
-      console.log('Album saved to user successfully!');
-    });
-
-  });
-
-  const lul = check(req.params.title).then(function (fulfilled) {
-
-    if (fulfilled == null) {
-
-      const albumN = new Album({
-        title: req.params.title,
-        artist: req.params.artist,
-        created_at: new Date(),
-        added: 1,
-        cover: 'https://coverartarchive.org/release-group/' + req.params.mbid + '/front.jpg'
-      });
-      albumN.save(err => {
-
-        if (err) throw err;
-
-        console.log('Album saved successfully!');
-      });
-
-    }
-    else {
-      fulfilled.addOne();
-      fulfilled.save(err => {
-
-        if (err) throw err;
-
-        console.log('Album updated successfully!');
-      });
-
-    }
-
-  })
-    .catch(function (error) {
-      console.log(error.message);
-    });
-
-  res.send("Added");
-
-});
-
-const check = function (title) {
-  return new Promise(
-    function (resolve, reject) {
-      Album.findOne({ 'title': title }, function (err, album) {
-
-        if (album != null) {
-          console.log("found");
-          resolve(album);
-
-        }
-        else {
-          console.log("not found");
-
-          resolve(null);
-        }
-      });
-
-
-    }
-  );
-}
-
-
-
-router.get('/user/albums/get/:username', function (req, res) {
-  //http://api.onemusicapi.com/20151208/images/discogs/10038433/1491656932-6796.jpeg.jpg?user_key=00c4333119af814c9d614cc8a71ece61&inc=images&maxResultCount=1
-
-  User.findOne({ 'username': req.params.username }, function (err, user) {
-
-
-    let result = user.albums;
-
-    res.send(result.filter(x => !!x));
-
-
-    /*  for (let value of result) {
-       if (value != null) {
- 
-         request.get({ url: "http://api.onemusicapi.com/20151208/release?title=" + value.title + "&artist=" + value.artist + "&user_key=00c4333119af814c9d614cc8a71ece61&inc=images&maxResultCount=1" }, function (error, response, body) {
-           if (!error && response.statusCode == 200) {
- 
-             let obj = JSON.parse(body);
-             let firstObj = obj[0];
-             jsonArtist.push(firstObj);
-             res.send(jsonArtist);
-           }
- 
-         });
- 
-       }
- 
-     } */
-
-
-
-  });
-
-
-});
-router.get('/user/add/listened/:username/:artist/:title', function (req, res) {
-
-
-  User.findOne({ 'username': req.params.username }, function (err, user) {
-
-
-
-    user.listened.push(
-      { artist: req.params.artist, title: req.params.title }
-    );
-
-    user.save(err => {
-
-      if (err) throw err;
-
-      console.log('Listened saved to user successfully!');
-    });
-
-    res.send("Added");
-
-
-
-  });
-
-
-});
-router.get('/user/get/listened/:username/', function (req, res) {
-
-
-  User.findOne({ 'username': req.params.username }, function (err, user) {
-
-    if (err) throw err;
 
 
 
 
-    res.send(user.listened);
 
-
-
-  });
-
-
-});
 function isLoggedIn(req, res, next) {
 
   if (req.isAuthenticated())

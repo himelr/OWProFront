@@ -8,20 +8,17 @@ const app = express();
 const router = express.Router();
 const request = require('request');
 const session = require('express-session');
+
 // Mongoose
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://root:root@ds131914.mlab.com:31914/moosebeat', { useMongoClient: true });
+mongoose.connect('mongodb://ec2-54-194-96-92.eu-west-1.compute.amazonaws.com:27017/owapi', { useMongoClient: true });
 // Passport 
 const passport = require('passport');
 require('./src/config/passport')(passport);
 //Routes
-const userRoutes = require('./src/routes/userRoutes');
-const albumRoutes = require('./src/routes/albumRoutes');
-const artistRoutes = require('./src/routes/artistRoutes');
-const reviewRoutes = require('./src/routes/reviewRoutes');
 const passportRoutes = require('./src/routes/passportRoutes');
-const spotifyRoutes = require('./src/routes/spotifyRoutes');
-const trackRoutes = require('./src/routes/trackRoutes');
+const userRoutes = require('./src/routes/userRoutes');
+
 //Parser middleware
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -75,11 +72,7 @@ app.use('/static', express.static('./src/files'));
 
 // routes will be prefixed with /api
 app.use("/api", userRoutes);
-app.use("/api", albumRoutes);
-app.use("/api", artistRoutes);
-app.use("/api", reviewRoutes);
-app.use("/api", spotifyRoutes);
-app.use("/api", trackRoutes);
+
 //app.use("/log", passportRoutes);
 app.use("/", router);
 
