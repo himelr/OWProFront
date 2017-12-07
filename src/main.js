@@ -11,12 +11,14 @@ import VueRouter from 'vue-router'
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 
-//import the hello component
+
 import profile from './components/profile.vue'
-//import the about component
+
 import search from './components/search.vue'
 
 import login from './components/login.vue'
+
+import leaderboard from './components/leaderboard.vue'
 
 
 
@@ -26,6 +28,8 @@ const routes = [
   { path: '/', component: search},
 
   { path: '/login', component: login },
+
+  { path: '/leaderboard', component: leaderboard },
 
   { name: 'profile', path: '/profile/:name', component: profile }
 

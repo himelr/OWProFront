@@ -18,6 +18,7 @@ require('./src/config/passport')(passport);
 //Routes
 const passportRoutes = require('./src/routes/passportRoutes');
 const userRoutes = require('./src/routes/userRoutes');
+const playerRoutes = require('./src/routes/playerRoutes')
 
 //Parser middleware
 const bodyParser = require('body-parser');
@@ -72,7 +73,7 @@ app.use('/static', express.static('./src/files'));
 
 // routes will be prefixed with /api
 app.use("/api", userRoutes);
-
+app.use("/api",playerRoutes)
 //app.use("/log", passportRoutes);
 app.use("/", router);
 
