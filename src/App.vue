@@ -28,10 +28,10 @@
 
           <ul class="navbar-nav ml-auto">
           
-         
-            <!--  <li class="nav-item" v-if="this.username != null">
+         <li class="nav-item" v-if="this.username != null">
               <router-link class="nav-link owo" v-bind:to="'/profile/'+ username">Profile {{username}}</router-link>
-            </li>  -->
+            </li>  
+            
             <li class="nav-item">
               <router-link class="nav-link owo" v-bind:to="'/leaderboard/'">Leaderboard</router-link>
             </li> 

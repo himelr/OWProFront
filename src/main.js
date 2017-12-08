@@ -6,11 +6,12 @@ import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm';
 
 //import the vue router
 import VueRouter from 'vue-router'
+import TreeView from "vue-json-tree-view"
 
 //tell vue to use the router
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
-
+Vue.use(TreeView);
 
 import profile from './components/profile.vue'
 
@@ -19,6 +20,9 @@ import search from './components/search.vue'
 import login from './components/login.vue'
 
 import leaderboard from './components/leaderboard.vue'
+
+import player from './components/player.vue'
+
 
 
 
@@ -31,7 +35,9 @@ const routes = [
 
   { path: '/leaderboard', component: leaderboard },
 
-  { name: 'profile', path: '/profile/:name', component: profile }
+  { name: 'profile', path: '/profile/:name', component: profile },
+
+  { name: 'player', path: '/player/:name', component: player }
 
 
 ]

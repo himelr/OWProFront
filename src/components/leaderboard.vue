@@ -3,6 +3,9 @@
  <!--  <div v-for="data in ldata" :key="data">
       <p> {{data.user.username}} </p>
           </div> -->
+          <div>
+   <div class = "tree"><tree-view :data="ldata" :options="{maxDepth: 2}"></tree-view></div>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -99,6 +102,9 @@ export default {
 h1,
 h2 {
   font-weight: normal;
+}
+.tree  {
+    text-align: left;
 }
 
 ul {

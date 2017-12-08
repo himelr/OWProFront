@@ -12,49 +12,54 @@
             <b-button type="submit" class="search-but shadow">Search</b-button>
           </form>
         </div>
+       
       </b-col>
       <b-col></b-col>
 
     </b-row>
     <p></p>
+  <b-list-group>
+    <b-list-group-item active >
+    Example players (click)
+      </b-list-group-item>
+    <b-list-group-item router-link v-bind:to="'/player/xQc-11273'">
+    xqc
+    <i class="fa fa-hand-spock-o" aria-hidden="true"></i>
 
+      </b-list-group-item>
+      <b-list-group-item>
+    This is a text only item
+      </b-list-group-item>
+</b-list-group>
 
   </b-container>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-
-  name: 'search',
+  name: "search",
 
   data: {
-    searchValue: '',
-    resultValue: "",
+    searchValue: "",
+    resultValue: ""
   },
-
-
-
 
   data() {
     return {
       resultValue: "",
       searchValue: "",
       seen: false
-    }
+    };
   },
 
-  methods: {
-
-
-  }
-}
-
+  methods: {}
+};
 </script>
 <!-- styling for the component -->
 <style>
 #about {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -68,8 +73,8 @@ export default {
 
 .search-but {
   color: #fff;
-  background-color: #9C27B0;
-  border-color: #9C27B0;
+  background-color: #9c27b0;
+  border-color: #9c27b0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-top: 2em;
   width: 30%;
@@ -88,7 +93,6 @@ h1 {
   height: 3em;
   font-size: 1.4em;
   font-weight: bold;
- 
 }
 
 #searchBg {
@@ -102,12 +106,8 @@ h1 {
 
 #resultPrint {
   color: #871ca5;
-  text-shadow:
-		-0.5px -0.5px 0 #000,
-		0.5px -0.5px 0 #000,
-		-0.5px 0.5px 0 #000,
-		0.5px 0.5px 0 #000;
-    font-size: 1.3em;
+  text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000,
+    0.5px 0.5px 0 #000;
+  font-size: 1.3em;
 }
-
 </style>

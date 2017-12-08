@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('./../models/user');
 const request = require('request');
+const rp = require('request-promise');
 
 
 
@@ -13,6 +14,24 @@ router.get('/user/get/', function (req, res) {
   else
     res.send(null);
 });
+router.get('/user/saved/:name', function (req, res) {
+  const options = {
+    uri: 'http://ec2-54-194-96-92.eu-west-1.compute.amazonaws.com:5000/profile/get/' + req.params.name,
+    json: true // Automatically parses the JSON string in the response
+};
+
+rp(options)
+    .then(function (data) {
+        res.send(data.players);
+    })
+    .catch(function (err) {
+        res.send({ "error": "request failed" });
+
+    });
+
+
+
+  });
 
 
 router.get('/user/get/:_id', function (req, res) {
@@ -58,8 +77,8 @@ router.get('/user/create/:name/:password', function (req, res) {
     username: req.params.name,
     password: "",
     created_at: new Date(),
-    reviews: [{}],
-    albums: [{}]
+    saved: [{}]
+   
   });
   /*  userN.reviews.push(
      { id: "7", name: "Douglas Adams", type: "comedy" }
