@@ -4,7 +4,7 @@
       <p> {{data.user.username}} </p>
           </div> -->
           <div>
-   <div class = "tree"><tree-view :data="ldata" :options="{maxDepth: 2}"></tree-view></div>
+
 </div>
 <table class="table">
   <thead>

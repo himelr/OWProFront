@@ -100,11 +100,11 @@ li {
 }
 
 a {
-    color: #871ca5;
+    color: navy;
 }
 
 label {
-    color: white;
+    color: black;
 }
 
 input {
@@ -116,8 +116,8 @@ input {
 }
 
 #searchBut {
-    background-color: #9C27B0;
-    border-color: #9C27B0;
+    background-color: navy;
+    border-color: navy;
     color: white;
 }
 </style>

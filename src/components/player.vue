@@ -12,7 +12,7 @@
   <tree-view :data="pdata" :options="{maxDepth: 2}"></tree-view>
   </div>
  <div class="col">
-   <img class="prof" v-bind:key="pdata" :src="pdata.user.img">  </img>
+   <img class="prof img-responsive" v-bind:key="pdata" :src="pdata.user.img">  </img>
    
        <ul class="list-group" v-bind:key="sdata">
   <li class="list-group-item active">Calculated Score Rating</li>
@@ -23,7 +23,7 @@
       </ul>
           <ul class="list-group" v-bind:key="pdata">
   <li class="list-group-item active">Game Data</li>
- 
+  <li class="list-group-item">RANK: {{pdata.user.rank.ranking}}</li>
   <li class="list-group-item">WINS: {{pdata.competitive.Game["Games Won"]}}</li>
    <li class="list-group-item">TIES: {{pdata.competitive.Game["Games Tied"]}}</li>
   <li class="list-group-item">LOSSES: {{pdata.competitive.Game["Games Lost"]}} </li>
@@ -32,73 +32,90 @@
   <li class="list-group-item">TIME PLAYED: {{pdata.competitive.Game["Time Played"]}} </li>
 
 </ul>
- <b-button v-on:click="add()" class ="lul" size="lg" variant="success">
+ <b-button  v-if="this.username != null" v-on:click="add()" class ="lul" size="lg" variant="success">
                 Save profile
             </b-button>
   </div>
+   <div class="col">  
+  <img class="img-responsive" id = "rank" v-bind:key="pdata" :src="pdata.user.rank.img">  </img>
+          <ul class="list-group" v-bind:key="pdata">
+  <li class="list-group-item active">Stats</li>
+ 
+  <li class="list-group-item">ALL DAMAGE DONE: {{pdata.competitive.Combat["All Damage Done"]}}</li>
+   <li class="list-group-item">ELIMINATIONS: {{pdata.competitive.Combat["Eliminations"]}}</li>
+  <li class="list-group-item">HERO DAMAGE DONE: {{pdata.competitive.Combat["Hero Damage Done"]}} </li>
+  <li class="list-group-item">MULTIKILLS: {{pdata.competitive.Combat["Multikills"]}} </li>
+    <li class="list-group-item">OBJECTIVE KILLS: {{pdata.competitive.Combat["Objective Kills"]}}</li>
+  <li class="list-group-item">OBJECTIVE TIME: {{pdata.competitive.Combat["Objective Time"]}} </li>
+  <li class="list-group-item">SOLO KILLS: {{pdata.competitive.Combat["Solo Kills"]}} </li>
+ <li class="list-group-item">ENVIROMENTAL KILLS {{pdata.competitive.Combat["Environmental Kills"]}} </li>
+  <li class="list-group-item">BARRIER DAMAGE DONE {{pdata.competitive.Combat["Barrier Damage Done"]}} </li>
+   <li class="list-group-item">FINAL BLOWS: {{pdata.competitive.Combat["Final Blows"]}} </li>
+<li class="list-group-item">TIME SPENT ON FIRE: {{pdata.competitive.Combat["Time Spent on Fire"]}} </li>
+</ul>
+   </div>
        </div>
+       
   </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-    
-  name: 'player',
+  name: "player",
   data() {
     return {
-    
       pdata: "",
       sdata: "",
-      player: this.$route.params.name
-    }
+      player: this.$route.params.name,
+      username: null
+    };
   },
   created: function() {
-
-    axios.get("/api/stats/get/" + this.player )
-      .then((response) => {
+    axios
+      .get("/api/stats/get/" + this.player)
+      .then(response => {
         this.pdata = response.data;
-      
+
         //alert(JSON.stringify(this.ldata))
       })
       .catch(function(error) {
-        alert("")
-
+        alert("");
       });
-      axios.get("/api/score/get/" + this.player )
-      .then((response) => {
+    axios
+      .get("/api/score/get/" + this.player)
+      .then(response => {
         this.sdata = response.data;
-      
+
         //alert(JSON.stringify(this.sdata))
       })
       .catch(function(error) {
-        alert("")
-
+        alert("");
       });
+    axios
+      .get("/api/user/get/")
+      .then(response => {
+        this.username = response.data;
+      })
+      .catch(function(error) {});
   },
-  methods:{
+  methods: {
+    add: function() {
+      axios
+        .get("/api/add/player/" + this.player)
+        .then(response => {
+          this.sdata = response.data;
+          alert("Player saved");
 
-      add:function(){
-
-      axios.get("/api/add/player/" + this.player )
-      .then((response) => {
-        this.sdata = response.data;
-      
-        //alert(JSON.stringify(this.sdata))
-      })
-      .catch(function(error) {
-        alert("")
-
-      });
-
-
-      }
+          //alert(JSON.stringify(this.sdata))
+        })
+        .catch(function(error) {
+          alert("");
+        });
+    }
   }
-
-}
-
-
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
@@ -106,8 +123,8 @@ h1,
 h2 {
   font-weight: normal;
 }
-.tree  {
-    text-align: left;
+.tree {
+  text-align: left;
 }
 
 ul {
@@ -124,12 +141,24 @@ a {
   color: #42b983;
 }
 .table td {
-   text-align: center;   
+  text-align: center;
 }
-.prof{
-   padding-bottom:1em;
+.prof {
+  padding-bottom: 1em;
+}
+/* .rank {
+   height: 12em;
+    width: 12em;
+  padding-bottom: 1em;
+}
+ */
+
+#rank{
+  height: 144px;
+  width: 128px;
+}
+.container{
+max-width: 90%;
 
 }
-
-.img-responsive{width:16%;}
 </style>

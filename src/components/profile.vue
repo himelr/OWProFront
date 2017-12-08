@@ -32,7 +32,7 @@ export default {
     axios.get("/api/user/saved/" + this.$route.params.name)
       .then((response) => {
         this.players = response.data;
-        alert("Player saved")
+       
     
 
       })

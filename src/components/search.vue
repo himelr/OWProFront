@@ -5,11 +5,11 @@
       <b-col cols="8">
         <div>
           <br>
-          <H1>Players</H1>
+          <H1>Player Search</H1>
           <form id="searchBar" @submit.stop.prevent="artistSearch">
-            <b-form-input id="inputField" type="text" placeholder="Hallo" v-model="searchValue"></b-form-input>
+            <b-form-input id="inputField" type="text" placeholder="BNET-ID" v-model="searchValue"></b-form-input>
             <p></p>
-            <b-button type="submit" class="search-but shadow">Search</b-button>
+            <b-button type="submit" v-on:click="roam(searchValue)" class="search-but shadow">Search!</b-button>
           </form>
         </div>
        
@@ -53,7 +53,11 @@ export default {
     };
   },
 
-  methods: {}
+  methods: {
+    roam:function(loc){
+      this.$router.push({ name: 'player', params: { name: loc }})
+    }
+  }
 };
 </script>
 <!-- styling for the component -->
@@ -73,15 +77,15 @@ export default {
 
 .search-but {
   color: #fff;
-  background-color: #9c27b0;
-  border-color: #9c27b0;
+  background-color: navy;
+  border-color: navy;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-top: 2em;
   width: 30%;
 }
 
 h1 {
-  color: white;
+  color: black;
 }
 
 #searchBar {

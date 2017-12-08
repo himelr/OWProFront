@@ -15,7 +15,7 @@
 
         <div>
           <router-link class="navbar-brand" v-bind:to="'/'">
-        <div> Chamo </div>
+        <div> OWPro </div>
           </router-link>
 
         </div>
@@ -31,9 +31,9 @@
          <li class="nav-item" v-if="this.username != null">
               <router-link class="nav-link owo" v-bind:to="'/profile/'+ username">Profile {{username}}</router-link>
             </li>  
-            
+
             <li class="nav-item">
-              <router-link class="nav-link owo" v-bind:to="'/leaderboard/'">Leaderboard</router-link>
+              <router-link class="nav-link owo" v-bind:to="'/leaderboard/'">Pro Leaderboard</router-link>
             </li> 
 
             <li class="nav-item" v-if="this.username != null">
