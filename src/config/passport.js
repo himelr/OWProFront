@@ -38,10 +38,19 @@ module.exports = function (passport) {
       
             User.findOne({ 'username': username }, function (err, user) {
                 
-                console.log(user.validPassword(password));
-             
+              
+               
+                if (err)
+          
+                return done(err);
+
+                if(!user)
+              
+                return done(null, false, { message: 'no user' }); 
+
                 if (!user.validPassword(password)){
                     console.log("Login failed");
+                    
                     return done(null, false, { message: 'Incorrect password.' }); 
 
                 }

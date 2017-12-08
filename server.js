@@ -48,7 +48,7 @@ app.use(passport.session()); // persistent login sessions
 router.post('/login', passport.authenticate('local-login', {
 
   successRedirect: '/', // redirect to the secure profile section
-  failureRedirect: '/artist', // redirect back to the signup page if there is an error
+  failureRedirect: '/login', // redirect back to the signup page if there is an error
 
 }));
 router.get('/logout', function (req, res) {
