@@ -10,6 +10,9 @@
 <div class = "tree col">
   
   <tree-view :data="pdata" :options="{maxDepth: 2}"></tree-view>
+   <b-button  v-if="this.username != null" v-on:click="add()" class ="lul" size="lg" variant="success">
+                Save profile
+            </b-button>
   </div>
  <div class="col">
    <img class="prof img-responsive" v-bind:key="pdata" :src="pdata.user.img">  </img>
@@ -32,9 +35,7 @@
   <li class="list-group-item">TIME PLAYED: {{pdata.competitive.Game["Time Played"]}} </li>
 
 </ul>
- <b-button  v-if="this.username != null" v-on:click="add()" class ="lul" size="lg" variant="success">
-                Save profile
-            </b-button>
+
   </div>
    <div class="col">  
   <img class="img-responsive" id = "rank" v-bind:key="pdata" :src="pdata.user.rank.img">  </img>
