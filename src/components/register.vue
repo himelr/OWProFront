@@ -50,9 +50,7 @@ export default {
                 alert('Your passwords do not match');
             }
 
-            else if (this.password.length < 5) {
-                alert('Your password must be atleast 5 characters long');
-            }
+          
 
             else {
                 this.handleSubmit()

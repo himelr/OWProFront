@@ -124,6 +124,9 @@ h1,
 h2 {
   font-weight: normal;
 }
+h4 {
+  padding-top: 1em;
+}
 .tree {
   text-align: left;
 }

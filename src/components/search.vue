@@ -27,9 +27,33 @@
     <i class="fa fa-hand-spock-o" aria-hidden="true"></i>
 
       </b-list-group-item>
-      <b-list-group-item>
-    This is a text only item
+       <b-list-group-item router-link v-bind:to="'/player/Taimou-2526'">
+    Taimou
+    <i class="fa fa-hand-spock-o" aria-hidden="true"></i>
+
       </b-list-group-item>
+       <b-list-group-item router-link v-bind:to="'/player/Mickie-11702'">
+    Mickie    <i class="fa fa-hand-spock-o" aria-hidden="true"></i>
+
+      </b-list-group-item>
+       <b-list-group-item router-link v-bind:to="'/player/HarryHook-2309'">
+    HarryHook
+    <i class="fa fa-hand-spock-o" aria-hidden="true"></i>
+
+      </b-list-group-item>
+      <b-list-group-item router-link v-bind:to="'/player/ryujehong-31878'">
+    Ryujehong
+    <i class="fa fa-hand-spock-o" aria-hidden="true"></i>
+
+      </b-list-group-item>
+            <b-list-group-item router-link v-bind:to="'/player/Jellu-2314'">
+    Jebu
+    <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    <i class="fa fa-car" aria-hidden="true"></i>
+
+
+      </b-list-group-item>
+ 
 </b-list-group>
 
   </b-container>

@@ -15,7 +15,7 @@
 
         <div>
           <router-link class="navbar-brand" v-bind:to="'/'">
-        <div> OWPro </div>
+        <div><h4> OWPro </h4></div>
           </router-link>
 
         </div>
@@ -101,24 +101,42 @@ export default {
 
 <!-- styling for the component -->
 <style>
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Overwatch2','Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin-top: 60px;
+  font-size: 1.5em;
 }
+@font-face { 
+    font-family: "Overwatch"; 
+    src: url("https://us.battle.net/forums/static/fonts/bignoodletoo/bignoodletoo.woff") format('woff');
+}
+
 
 body,
 h1,
 h2,
 h3,
-h4,
 h5,
 h6 {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
 }
+h4{
+  font-family: 'Overwatch'
+}
+@font-face {
+    font-family: "Overwatch2";
+    src: url('/static/css/big_noodle_titling.woff2') format('woff2'),
+        url('/static/css/big_noodle_titling.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 
 body {
 /*   background: url(/static/img/free-purple-triangles-vector.jpg); */
@@ -158,6 +176,11 @@ body {
   height: 100%;
   z-index: -1;
 }
+/* #app { 
+    font-family: "Overwatch"; 
+    src: url("https://us.battle.net/forums/static/fonts/bignoodletoo/bignoodletoo.woff") format('woff');
+} */
+
 
 
 .navbar .navbar-brand {
