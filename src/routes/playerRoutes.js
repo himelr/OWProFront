@@ -21,6 +21,24 @@ router.get('/leaderboard/get/', function (req, res) {
 
 
 });
+router.get('/heroboard/get/', function (req, res) {
+    
+        const options = {
+            uri: 'http://ec2-54-194-96-92.eu-west-1.compute.amazonaws.com:5000/get/heroboard/',
+            json: true // Automatically parses the JSON string in the response
+        };
+    
+        rp(options)
+            .then(function (data) {
+                res.send(data);
+            })
+            .catch(function (err) {
+                res.send("Failed");
+    
+            });
+    
+    
+    });
 router.get('/stats/get/:name', function (req, res) {
 
     const options = {

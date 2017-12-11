@@ -23,6 +23,8 @@ import leaderboard from './components/leaderboard.vue'
 
 import player from './components/player.vue'
 
+import heroboard from './components/heroboard.vue'
+
 
 
 
@@ -34,6 +36,8 @@ const routes = [
   { path: '/login', component: login },
 
   { path: '/leaderboard', component: leaderboard },
+
+  { path: '/heroboard', component: heroboard },
 
   { name: 'profile', path: '/profile/:name', component: profile },
 

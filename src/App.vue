@@ -35,7 +35,9 @@
             <li class="nav-item">
               <router-link class="nav-link owo" v-bind:to="'/leaderboard/'">Pro Leaderboard</router-link>
             </li> 
-
+            <li class="nav-item">
+              <router-link class="nav-link owo" v-bind:to="'/heroboard/'">Pro Hero Statistics</router-link>
+            </li> 
             <li class="nav-item" v-if="this.username != null">
 
               <a class="nav-link" href="/logout">{{this.username}} Logout!</a>
