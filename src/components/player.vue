@@ -58,6 +58,113 @@
        </div>
        
   </div>
+  <div>
+
+  <br>
+ <select class="select" v-model="selected">
+  <option disabled value="">Please select one</option>
+  <option>Eliminations per life</option>
+  <option>Games Won</option>
+  <option>Multikill Best</option>
+  <option>Time Played</option>
+  <option>Weapon Accuracy</option>
+</select>
+<span>Selected: {{ selected }}</span>
+
+
+</div>
+  <table  v-show="selected == 'Eliminations per life'" class="table">
+  <thead>
+    <tr>
+     <th>Portrait</th>
+      <th>Hero Name</th>
+      <th>Eliminations per life</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(data1,index) in eliminations" :key="data1">
+         <th >
+          <img :src='img_url+img_data[index] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+      </th>
+   <th>{{index}}</th>
+      <th>{{data1}}</th>
+     
+   
+    </tr>
+  </tbody>
+</table>
+ <table  v-show="selected == 'Games Won'" class="table">
+  <thead>
+    <tr>
+      <th>Portrait</th>
+      <th>Hero Name</th>
+      <th>Games Won</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(data2,index2) in games_won" :key="data2">
+         <th >
+          <img :src='img_url+img_data[index2] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+      </th>
+   <th>{{index2}}</th>
+      <th>{{data2}}</th>
+    </tr>
+  </tbody>
+</table> 
+ <table  v-show="selected == 'Multikill Best'" class="table">
+  <thead>
+    <tr>
+      <th>Portrait</th>
+      <th>Hero Name</th>
+      <th>Multikill Best</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(data3,index3) in multikill_best" :key="data3">
+         <th >
+          <img :src='img_url+img_data[index3] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+      </th>
+   <th>{{index3}}</th>
+      <th>{{data3}}</th>
+    </tr>
+  </tbody>
+</table> 
+ <table  v-show="selected == 'Time Played'" class="table">
+  <thead>
+    <tr>
+      <th>Portrait</th>
+      <th>Hero Name</th>
+      <th>Time Played (h)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(data4,index4) in time_played" :key="data4">
+         <th >
+          <img :src='img_url+img_data[index4] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+      </th>
+   <th>{{index4}}</th>
+      <th>{{data4}}</th>
+    </tr>
+  </tbody>
+</table> 
+ <table  v-show="selected == 'Weapon Accuracy'" class="table">
+  <thead>
+    <tr>
+      <th>Portrait</th>
+      <th>Hero Name</th>
+      <th>Weapon Accuracy (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(data5,index5) in weapon_accuracy" :key="data5">
+         <th >
+          <img :src='img_url+img_data[index5] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+      </th>
+   <th>{{index5}}</th>
+      <th>{{data5}}</th>
+    </tr>
+  </tbody>
+</table> 
   </div>
 </template>
 
@@ -69,8 +176,17 @@ export default {
     return {
       pdata: "",
       sdata: "",
+      hdata: "",
       player: this.$route.params.name,
-      username: null
+      username: null,
+      eliminations: "",
+      games_won: "",
+      multikill_best: "",
+      time_played: "",
+      weapon_accuracy: "",
+      selected: "Eliminations per life",
+      img_data: "",
+      img_url: "https://d1u1mce87gyfbn.cloudfront.net/game/heroes/small/"
     };
   },
   created: function() {
@@ -84,6 +200,22 @@ export default {
       .catch(function(error) {
         alert("");
       });
+    axios
+      .get("/api/hero/get/" + this.player)
+      .then(response => {
+        this.hdata = response.data;
+        this.eliminations = response.data.eliminations_per_life;
+        this.games_won = response.data.games_won;
+        this.multikill_best = response.data.multikill_best;
+        this.time_played = response.data.time_played;
+        this.weapon_accuracy = response.data.weapon_accuracy;
+        this.img_data = response.data.img;
+        //alert(JSON.stringify(this.ldata))
+      })
+      .catch(function(error) {
+        alert("");
+      });
+
     axios
       .get("/api/score/get/" + this.player)
       .then(response => {
@@ -126,6 +258,7 @@ h2 {
 }
 h4 {
   padding-top: 1em;
+  font-size: 2em;
 }
 .tree {
   text-align: left;
@@ -157,12 +290,14 @@ a {
 }
  */
 
-#rank{
+#rank {
   height: 144px;
   width: 128px;
 }
-.container{
-max-width: 90%;
-
+.container {
+  max-width: 90%;
+}
+.select {
+  text-align: center;
 }
 </style>

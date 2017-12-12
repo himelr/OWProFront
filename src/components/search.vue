@@ -1,13 +1,16 @@
 <template>
   <b-container>
+     <br>
+        <img class="img-responsive" src ="http://i.imgur.com/IF0dVuY.png"></img>
     <b-row>
+      
       <b-col></b-col>
       <b-col cols="8">
         <div>
-          <br>
-          <H1>Player Search</H1>
+         
+        
           <form id="searchBar" @submit.stop.prevent="artistSearch">
-            <b-form-input id="inputField" type="text" placeholder="BNET-ID" v-model="searchValue"></b-form-input>
+            <b-form-input id="inputField" type="text" placeholder="INSERT BNET-ID TO SEARCH" v-model="searchValue"></b-form-input>
             <p></p>
             <b-button type="submit" v-on:click="roam(searchValue)" class="search-but shadow">Search!</b-button>
           </form>
@@ -138,4 +141,10 @@ h1 {
     0.5px 0.5px 0 #000;
   font-size: 1.3em;
 }
+.img-responsive{
+ 
+     max-width:70%;
+
+}
+
 </style>

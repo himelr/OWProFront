@@ -112,6 +112,25 @@ router.get('/save/stat/:name', function (req, res) {
         
         });
 
+        router.get('/hero/get/:name', function (req, res) {
+            
+                const options = {
+                    uri: 'http://ec2-54-194-96-92.eu-west-1.compute.amazonaws.com:5000/u/herostats/'+ req.params.name,
+                    json: true // Automatically parses the JSON string in the response
+                };
+            
+                rp(options)
+                    .then(function (data) {
+                        res.send(data);
+                    })
+                    .catch(function (err) {
+                        res.send({ "error": "request failed" });
+            
+                    });
+            
+            
+            });
+
     
 
 

@@ -55,6 +55,7 @@ h1 {
 h2 {
   font-weight: normal;
   color: black;
+  padding-top: 1em;
 }
 
 ul {
