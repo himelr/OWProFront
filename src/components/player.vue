@@ -194,13 +194,7 @@ export default {
       .get("/api/stats/get/" + this.player)
       .then(response => {
         this.pdata = response.data;
-
-        //alert(JSON.stringify(this.ldata))
-      })
-      .catch(function(error) {
-        alert("");
-      });
-    axios
+   axios
       .get("/api/hero/get/" + this.player)
       .then(response => {
         this.hdata = response.data;
@@ -211,12 +205,7 @@ export default {
         this.weapon_accuracy = response.data.weapon_accuracy;
         this.img_data = response.data.img;
         //alert(JSON.stringify(this.ldata))
-      })
-      .catch(function(error) {
-        alert("");
-      });
-
-    axios
+         axios
       .get("/api/score/get/" + this.player)
       .then(response => {
         this.sdata = response.data;
@@ -226,6 +215,18 @@ export default {
       .catch(function(error) {
         alert("");
       });
+      })
+      .catch(function(error) {
+        alert("");
+      });
+        //alert(JSON.stringify(this.ldata))
+      })
+      .catch(function(error) {
+        alert("");
+      });
+   
+
+   
     axios
       .get("/api/user/get/")
       .then(response => {

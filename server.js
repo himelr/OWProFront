@@ -38,7 +38,7 @@ const bundleRenderer = createBundleRenderer(
 //REST API
 //Passport
 app.use(session({
-  secret: 'moosebeatbois', 
+  secret: 'owrproro', 
   resave: true,
   saveUninitialized: true
 })); // session secret

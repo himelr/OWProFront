@@ -36,7 +36,7 @@
   </tbody>
 </table> -->
 
-<h2>Averages calculated from pro player data for every hero</h2>
+<h2>Averages calculated from pro player data. </h2>
 <div>
 
   
