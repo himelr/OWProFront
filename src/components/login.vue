@@ -5,11 +5,11 @@
                 <br>
                 <div class="form-group">
                     <label for="user">Username</label>
-                    <input id="user" type="text" class="form-control" name="username">
+                    <input id="user" type="text" class="form-control regi" name="username">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input id="password" type="password" class="form-control" name="password">
+                    <input id="password" type="password" class="form-control regi" name="password">
                 </div>
 
                 <button id="searchBut" type="submit" class="btn btn-warning btn-lg shadow">Login</button>
@@ -119,5 +119,8 @@ input {
     background-color: navy;
     border-color: navy;
     color: white;
+}
+.regi {
+    font-family: Arial, Helvetica, sans-serif; 
 }
 </style>

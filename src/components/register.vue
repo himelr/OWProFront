@@ -3,7 +3,7 @@
         <div>
 
             <!-- Modal Component -->
-            <b-modal id="regform" ref="regform" title="Submit your account information" @ok="handleOk" @shown="clearData">
+            <b-modal class = "regi" id="regform" ref="regform" title="Submit your account information" @ok="handleOk" @shown="clearData">
                 <form @submit.stop.prevent="handleSubmit">
                     <b-form-input type="text" value="" placeholder="Enter your name" v-model="username"></b-form-input>
                     <b-form-input type="password" placeholder="Enter your password" v-model="password"></b-form-input>
@@ -84,5 +84,7 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.regi {
+    font-family: Arial, Helvetica, sans-serif; 
+}
 </style>
