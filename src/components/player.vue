@@ -15,7 +15,7 @@
             </b-button>
   </div>
  <div class="col">
-   <img class="prof img-responsive" v-bind:key="pdata" :src="pdata.user.img">  </img>
+   <img class="prof img-responsive" v-bind:key="pdata" :src="pdata.user.img">  
    
        <ul class="list-group" v-bind:key="sdata">
   <li class="list-group-item active">Calculated Score Rating</li>
@@ -38,7 +38,7 @@
 
   </div>
    <div class="col">  
-  <img class="img-responsive" id = "rank" v-bind:key="pdata" :src="pdata.user.rank.img">  </img>
+  <img class="img-responsive" id = "rank" v-bind:key="pdata" :src="pdata.user.rank.img">  
           <ul class="list-group" v-bind:key="pdata">
   <li class="list-group-item active">Stats</li>
  
@@ -84,7 +84,7 @@
   <tbody>
     <tr v-for="(data1,index) in eliminations" :key="data1">
          <th >
-          <img :src='img_url+img_data[index] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+          <img :src='img_url+img_data[index] + ".png"' class="img-responsive voc_list_preview_img" alt="" title="">
       </th>
    <th>{{index}}</th>
       <th>{{data1}}</th>
@@ -104,7 +104,7 @@
   <tbody>
     <tr v-for="(data2,index2) in games_won" :key="data2">
          <th >
-          <img :src='img_url+img_data[index2] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+          <img :src='img_url+img_data[index2] + ".png"' class="img-responsive voc_list_preview_img" alt="" title="">
       </th>
    <th>{{index2}}</th>
       <th>{{data2}}</th>
@@ -122,7 +122,7 @@
   <tbody>
     <tr v-for="(data3,index3) in multikill_best" :key="data3">
          <th >
-          <img :src='img_url+img_data[index3] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+          <img :src='img_url+img_data[index3] + ".png"' class="img-responsive voc_list_preview_img" alt="" title="">
       </th>
    <th>{{index3}}</th>
       <th>{{data3}}</th>
@@ -140,7 +140,7 @@
   <tbody>
     <tr v-for="(data4,index4) in time_played" :key="data4">
          <th >
-          <img :src='img_url+img_data[index4] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+          <img :src='img_url+img_data[index4] + ".png"' class="img-responsive voc_list_preview_img" alt="" title="">
       </th>
    <th>{{index4}}</th>
       <th>{{data4}}</th>
@@ -158,7 +158,7 @@
   <tbody>
     <tr v-for="(data5,index5) in weapon_accuracy" :key="data5">
          <th >
-          <img :src='img_url+img_data[index5] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+          <img :src='img_url+img_data[index5] + ".png"' class="img-responsive voc_list_preview_img" alt="" title="">
       </th>
    <th>{{index5}}</th>
       <th>{{data5}}</th>

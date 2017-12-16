@@ -31,7 +31,7 @@
     <tr v-for="(data,index) in ldata" :key="data">
       <th scope="row">{{index + 1}}</th>
       <th >
-          <img :src='data.user.img' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+          <img :src='data.user.img' class="img-responsive voc_list_preview_img" alt="" title="">
       </th>
       <th>{{data.user.username}}</th>
       <th>{{data.scores.attack}}</th>

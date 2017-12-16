@@ -1,40 +1,6 @@
 <template>
 <div class="heroboard">
 
-  <!--         <table class="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Avatar</th>
-      <th>Player Name</th>
-      <th v-on:click="sort(1)">Attack Score
-        <i class="fa fa-sort" aria-hidden="true"></i>
-  
-      </th>
-      <th v-on:click="sort(2)">Objective Score
-          <i class="fa fa-sort" aria-hidden="true"></i>
-
-      </th>
-      
-      <th v-on:click="sort(3)">Support Score
-          <i class="fa fa-sort" aria-hidden="true"></i>
-
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="(data,index) in ldata" :key="data">
-      <th scope="row">{{index + 1}}</th>
-      <th >
-          <img :src='data.user.img' class="img-responsive voc_list_preview_img" alt="" title=""></a>
-      </th>
-      <th>{{data.user.username}}</th>
-      <th>{{data.scores.attack}}</th>
-      <th>{{data.scores.objective}}</th>
-      <th>{{data.scores.support}}</th>
-    </tr>
-  </tbody>
-</table> -->
 
 <h2>Averages calculated from pro player data. </h2>
 <div>
@@ -63,7 +29,7 @@
   <tbody>
     <tr v-for="(data1,index) in eliminations" :key="data1">
          <th >
-          <img :src='img_url+img_data[index] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+          <img :src='img_url+img_data[index] + ".png"' class="img-responsive voc_list_preview_img" alt="" title="">
       </th>
    <th>{{index}}</th>
       <th>{{data1}}</th>
@@ -83,7 +49,7 @@
   <tbody>
     <tr v-for="(data2,index2) in games_won" :key="data2">
          <th >
-          <img :src='img_url+img_data[index2] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+          <img :src='img_url+img_data[index2] + ".png"' class="img-responsive voc_list_preview_img" alt="" title="">
       </th>
    <th>{{index2}}</th>
       <th>{{data2}}</th>
@@ -101,7 +67,7 @@
   <tbody>
     <tr v-for="(data3,index3) in multikill_best" :key="data3">
          <th >
-          <img :src='img_url+img_data[index3] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+          <img :src='img_url+img_data[index3] + ".png"' class="img-responsive voc_list_preview_img" alt="" title="">
       </th>
    <th>{{index3}}</th>
       <th>{{data3}}</th>
@@ -119,7 +85,7 @@
   <tbody>
     <tr v-for="(data4,index4) in time_played" :key="data4">
          <th >
-          <img :src='img_url+img_data[index4] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+          <img :src='img_url+img_data[index4] + ".png"' class="img-responsive voc_list_preview_img" alt="" title="">
       </th>
    <th>{{index4}}</th>
       <th>{{data4}}</th>
@@ -137,7 +103,7 @@
   <tbody>
     <tr v-for="(data5,index5) in weapon_accuracy" :key="data5">
          <th >
-          <img :src='img_url+img_data[index5] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""></a>
+          <img :src='img_url+img_data[index5] + ".png"' class="img-responsive voc_list_preview_img" alt="" title=""> 
       </th>
    <th>{{index5}}</th>
       <th>{{data5}}</th>

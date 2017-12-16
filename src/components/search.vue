@@ -1,7 +1,7 @@
 <template>
   <b-container>
      <br>
-        <img class="img-responsive" src ="http://i.imgur.com/IF0dVuY.png"></img>
+        <img class="img-responsive" src ="http://i.imgur.com/IF0dVuY.png">
     <b-row>
       
       <b-col></b-col>
